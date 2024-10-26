@@ -1,0 +1,224 @@
+/* يضبط الصندوق لتضمين الهوامش */
+* {
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+/* إعدادات عامة للجسم */
+body {
+    padding-top: 6%; /* لتجنب تداخل الهيدر الثابت */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* تنسيق شريط التنقل الرئيسي */
+header {
+    background-color: black;
+    color: #fff;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* حاوية الصفحة الرئيسية */
+.container {
+    display: flex;
+    margin-top: 70px; /* لتجنب تداخل الهيدر الثابت */
+}
+
+/* إعدادات الشريط الجانبي */
+aside {
+    width: 20%;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.764);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    color: pink;
+    min-height: 100vh; /* لجعله يغطي ارتفاع الصفحة بالكامل */
+    left: 0; /* يجعله ملتصقًا بالجانب الأيسر */
+    top: 12%; /* يبدأ من أعلى الشاشة */
+}
+
+aside a {
+    color: rgb(244, 208, 214);
+    padding: 0.5rem 0;
+    text-decoration: none;
+}
+
+/* إعدادات القسم الرئيسي */
+main {
+    padding: 30px;
+    background-color: pink;
+    flex: 1;
+    margin-left: 20%; /* لضمان أن يكون المحتوى بجانب الشريط الجانبي */
+}
+
+/* بطاقات المنتجات */
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.product-card {
+    width: 200px;
+    text-align: center;
+    border: 1px solid #9f6666;
+    background-color: #da59599b;
+    padding: 0.5rem;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: scale(1.05); /* تضخيم البطاقة عند التمرير */
+}
+
+.product-card img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+/* زر */
+button {
+    width: 120px;
+    height: 50px;
+    background-color: black;
+    color: rgb(245, 235, 235);
+    font-size: large;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+/* العنوان الرئيسي */
+h1 {
+    width: 60%;
+    height: 60px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin: 0 auto 1rem auto;
+    border-radius: 5px;
+}
+
+/* إعدادات الشعار */
+.logo img {
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    position: absolute;
+    left: 11%;
+    top: 8px;
+}
+
+/* تخصيص الروابط */
+nav a {
+    color: pink;
+    padding: 0 20px;
+}
+
+.ll {
+    background-color: white;
+    color: rgb(155, 36, 56);
+}
+
+/* تصميم لسطح المكتب */
+@media (min-width: 768px) {
+    /* إعدادات الشريط الجانبي */
+    aside {
+        width: 20%;
+        position: fixed;
+        min-height: 100vh;
+        top: 12%;
+        left: 0;
+    }
+
+    /* إعدادات القسم الرئيسي */
+    main {
+        margin-left: 20%;
+    }
+}
+
+/* تصميم للجوال */
+@media (max-width: 767px) {
+    /* تعديل الشريط الجانبي ليصبح بعرض كامل */
+    aside {
+        width: 100%;
+        position: relative;
+        top: 0;
+        padding: 15px;
+        min-height: auto; /* إلغاء الطول الثابت */
+        order: 2; /* لجعله يظهر بعد الهيدر */
+    }
+
+    /* تعديل القسم الرئيسي ليشغل عرض الشاشة بالكامل */
+    main {
+        width: 100%;
+        margin-left: 0;
+        padding: 20px;
+        order: 3;
+    }
+
+    /* تنسيق زر */
+    button {
+        width: 100%;
+        font-size: medium;
+    }
+
+    /* تحسين عرض الشعار */
+    .logo img {
+        width: 60px;
+        height: 60px;
+        left: 5%;
+        top: 10px;
+    }
+
+    /* عرض المنتجات بشكل عمودي */
+    .products {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* تصغير عرض بطاقة المنتج */
+    .product-card {
+        width: 90%;
+    }
+
+    /* تخصيص حجم الهيدر */
+    header {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    /* تخصيص الروابط */
+    nav a {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 767px) {
+    /* إخفاء الشريط الجانبي على الشاشات الصغيرة */
+    aside {
+        display: none;
+    }
+
+    /* تعديل القسم الرئيسي ليشغل عرض الشاشة بالكامل */
+    main {
+        width: 100%;
+        margin-left: 0;
+        padding: 20px;
+    }
+}
